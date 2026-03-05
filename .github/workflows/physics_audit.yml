@@ -1,0 +1,9 @@
+name: Physics Audit
+on: [push]
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Theory Auditor
+        run: python3 tools/auditor.py --mode fast

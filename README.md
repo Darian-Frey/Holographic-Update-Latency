@@ -7,7 +7,7 @@
 
 ## 📖 The Core Theory: What is Holographic Update Latency?
 
-Traditional physics treats space-time as a continuous, passive stage. **CODE-GEO** rejects this, proposing instead that the universe is a **Holographic Substrate** with a finite **Informational Update Frequency ($\nu$)**.
+Traditional physics treats space-time as a continuous, passive stage. **CODE-GEO** [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18828511.svg)](https://doi.org/10.5281/zenodo.18828511) rejects this, proposing instead that the universe is a **Holographic Substrate** with a finite **Informational Update Frequency ($\nu$)**.
 
 In this framework, physical laws are not static; they are the result of a global "refresh" of informational bits. **Holographic Update Latency** is the measurable delay (or "Lag") in this refresh rate caused by the density of information and the expansion of the light-cone.
 

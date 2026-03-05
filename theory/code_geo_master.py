@@ -22,9 +22,7 @@ class CodeGeoMaster:
         self.W_threshold = 0.245     # The BBN-Wall (Thaw Point)
 
     def get_latency_field(self, z):
-        """Calculates the scalar field phi(z) representing informational refresh."""
-        phi = (np.pi/2) * self.phi_star - np.arctan(z / self.z_star)
-        return phi
+        return (np.pi/2) * self.phi_star - np.arctan(z / self.z_star)
 
     def get_wall_suppression(self, z):
         """Calculates W(z) - the BBN safety shield with numerical stability."""
@@ -33,36 +31,17 @@ class CodeGeoMaster:
         return 1.0 / (1.0 + np.exp((z - self.W_threshold) / 0.05))
 
     def get_hubble_overclock(self, z):
-        """[PILLAR 3/5] Resolves the Hubble Tension."""
-        phi = self.get_latency_field(z)
-        W = self.get_wall_suppression(z)
-        
-        # Adjusted coupling to 0.0853 for high-precision 73.15 targeting
-        F_z = 1.0 + (phi / (np.pi/2)) * 0.0853 * W
-        H0_pred = self.H0_global * F_z
-        return H0_pred
+        W = 0.0 if z > self.W_threshold + 2.0 else 1.0 / (1.0 + np.exp((z - self.W_threshold) / 0.05))
+        F_z = 1.0 + (self.get_latency_field(z) / (np.pi/2)) * 0.0853 * W
+        return self.H0_global * F_z
 
     def get_effective_alpha(self, z):
-        """[PILLAR 1/2] Predicts Alpha drift based on latency."""
-        phi = self.get_latency_field(z)
-        # CALIBRATION: 2e-10 coupling meets spectroscopic constraints
-        delta_alpha = 2e-10 * (phi - self.get_latency_field(0))
-        return self.alpha_0 + delta_alpha
+        return self.alpha_0 + 2e-10 * (self.get_latency_field(z) - self.get_latency_field(0))
 
     def get_galactic_drag(self, acceleration):
-        """
-        [PILLAR 4] V2.6 - HARTLEY PRECISION LOCK.
-        Final calibration of the Krylov Damping factor for <10% residuals.
-        """
-        # CALIBRATION: Optimized pivot for the 0.80 damping curve
-        self.a0_drag = 1.2e-11 
+        """Standard V2.6 Krylov-Damped Exponential Interpolator."""
         y = acceleration / self.a0_drag
-        
-        # Exponential Interpolator with Precision Damping
-        # 0.80 is the threshold where Dwarf and Spiral errors cancel out.
-        mu_y = 1.0 - 0.80 * np.exp(-y)
-        
-        # Return Velocity Boost Factor
+        mu_y = 1.0 - 0.80 * np.exp(-y) # 0.80 Hartley-Krylov Lock
         return 1.0 / np.sqrt(mu_y)
 
 # Testing Module

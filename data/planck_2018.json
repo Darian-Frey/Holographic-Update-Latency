@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "project": "CODE-GEO V2.0",
+    "architect": "Shane Hartley",
+    "source": "ESA/Planck Collaboration (2018 Release)",
+    "description": "High-redshift CMB power spectrum parameters representing the global substrate baseline.",
+    "status": "Ground Truth Anchor"
+  },
+  "primary_parameters": {
+    "H0_global": {
+      "value": 67.36,
+      "uncertainty": 0.54,
+      "unit": "km/s/Mpc",
+      "interpretation": "Substrate Base Frequency"
+    },
+    "Omega_m": {
+      "value": 0.3153,
+      "uncertainty": 0.0073,
+      "interpretation": "Total Matter Density"
+    },
+    "z_recombination": {
+      "value": 1089.92,
+      "uncertainty": 0.25,
+      "interpretation": "CMB Last Scattering Surface"
+    }
+  },
+  "constraints": {
+    "tau_reionization": 0.0544,
+    "sigma_8": 0.8111,
+    "scalar_spectral_index_ns": 0.9649
+  },
+  "code_geo_linkage": {
+    "phi_at_z_1100": 0.0,
+    "wall_suppression_active": true,
+    "prediction_match": "Required divergence < 0.1% at z > 1000"
+  }
+}

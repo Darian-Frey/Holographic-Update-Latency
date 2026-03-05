@@ -1,5 +1,7 @@
 # 🌌 Holographic Update Latency (CODE-GEO V2.0)
 
+**Lead Architect: Shane Hartley**
+
 **A Unified Information-Theoretic Framework for Quantum and Cosmological Tensions.**
 
 This repository hosts the **CODE-GEO** framework, a first-principles derivation of gravity, expansion, and quantum coupling as emergent properties of a holographic substrate with a finite informational update frequency ($\nu$).

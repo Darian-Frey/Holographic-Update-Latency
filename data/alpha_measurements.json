@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "project": "CODE-GEO V2.0",
+    "architect": "Shane Hartley",
+    "description": "Consolidated spectroscopic measurements of Delta Alpha / Alpha (da/a) across cosmic time.",
+    "units": "parts per million (ppm)",
+    "scale": 1e-6
+  },
+  "observations": [
+    {
+      "source": "VLT/UVES (Webb et al.)",
+      "z_mean": 0.21,
+      "da_a_ppm": -0.2,
+      "sigma": 0.4,
+      "target": "Quasar J0002+2550"
+    },
+    {
+      "source": "ESPRESSO (Murphy et al.)",
+      "z_mean": 0.245,
+      "da_a_ppm": 0.05,
+      "sigma": 0.15,
+      "target": "VLT-Calibration-Standard",
+      "note": "Critical Pivot Point for CODE-GEO"
+    },
+    {
+      "source": "Keck/HIRES (Wilczynska)",
+      "z_mean": 0.52,
+      "da_a_ppm": -0.8,
+      "sigma": 0.6,
+      "target": "Multiple Quasar Sample"
+    },
+    {
+      "source": "VLT/UVES (King et al.)",
+      "z_mean": 1.15,
+      "da_a_ppm": 0.5,
+      "sigma": 0.9,
+      "target": "High-z Absorption Line"
+    },
+    {
+      "source": "Oklo Phenomenon (Shlyakhter)",
+      "z_mean": 0.14,
+      "da_a_ppm": 0.01,
+      "sigma": 0.1,
+      "target": "Prehistoric Nuclear Reactor",
+      "note": "Low-z constraint"
+    }
+  ],
+  "constraints": {
+    "BBN_limit": "Delta Alpha < 1% at z=1e9",
+    "CMB_limit": "Delta Alpha < 0.5% at z=1100"
+  }
+}
